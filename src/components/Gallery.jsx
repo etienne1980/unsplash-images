@@ -29,23 +29,23 @@ const Gallery = () => {
     });
 
     if (isLoading){
-        return <h3> ... loading pictures</h3>
-    };
+        return <h3 className='condition-text'> ... loading pictures</h3>
+    }
 
     if (isError){
-        return <h3>There was an error. Pls try again later</h3>
-    };
+        return <h3 className='condition-text'>There was an error. Pls try again later</h3>
+    }
 
-    let mySearchMery = data.data.results;
+    let mySearchQuery = data.data.results;
     // console.log(mySearchMery)
 
-    if (mySearchMery.length < 1){
-        return <h3>there is no result for your search. Try searching something different</h3>
+    if (mySearchQuery.length < 1){
+        return <h3 className='condition-text'>there is no result for your search. Please Try searching something different</h3>
     }
 
     return (
         <section className='image-container'>
-            {mySearchMery.map((picture)=>{
+            {mySearchQuery.map((picture)=>{
                 // console.log(picture)
                 const id = picture?.id;
                 const url = picture?.urls?.regular;
